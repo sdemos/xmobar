@@ -45,7 +45,7 @@ test-suite XmobarTest
         Plugins.Monitors.ThermalZone, Plugins.Monitors.Top,
         Plugins.Monitors.Uptime,
         Plugins.Monitors.Bright, Plugins.Monitors.CatInt,
-        Plugins.Monitors.CommonSpec
+        Plugins.Monitors.CommonSpec, Plugins.Bars
 
   build-depends:
     base >= 4.9.1.0 && < 4.13,
@@ -66,7 +66,8 @@ test-suite XmobarTest
     parsec-numbers == 0.1.0,
     stm >= 2.3 && < 2.6,
     temporary,
-    async
+    async,
+    pulseaudio
 
   if flag(with_alsa) || flag(all_extensions)
       build-depends: alsa-mixer > 0.2.0.2
@@ -167,6 +168,10 @@ executable xmobar
       Plugins.Monitors.ThermalZone, Plugins.Monitors.Top,
       Plugins.Monitors.Uptime,
       Plugins.Monitors.Bright, Plugins.Monitors.CatInt
+      Plugins.Bars, Plugins.Bars.Cpu, Plugins.Bars.Memory,
+      Plugins.Bars.Brightness, Plugins.Bars.Common,
+      Plugins.Bars.Volume, Plugins.Bars.Battery,
+      Plugins.Bars.Network
 
     ghc-options: -funbox-strict-fields -Wall -fno-warn-unused-do-bind
     extra-libraries: Xrandr Xrender
@@ -188,7 +193,9 @@ executable xmobar
       parsec == 3.1.*,
       parsec-numbers >= 0.1.0,
       stm >= 2.3 && < 2.6,
-      async
+      async,
+      pulseaudio,
+      dbus
 
     if impl(ghc < 8.0.2)
        -- Disable building with GHC before 8.0.2.

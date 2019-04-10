@@ -5,3 +5,4 @@ extra-deps:
 - iwlib-0.1.0
 - parsec-numbers-0.1.0
 - alsa-mixer-0.2.0.3
+- pulseaudio-0.0.2.1

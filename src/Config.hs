@@ -37,6 +37,7 @@ import Plugins.XMonadLog
 import Plugins.EWMH
 import Plugins.Kbd
 import Plugins.Locks
+import Plugins.Bars
 
 #ifdef INOTIFY
 import Plugins.Mail
@@ -159,7 +160,7 @@ infixr :*:
 -- this function's type signature.
 runnableTypes :: Command :*: Monitors :*: Date :*: PipeReader :*:
                  BufferedPipeReader :*: CommandReader :*: StdinReader :*:
-                 XMonadLog :*: EWMH :*: Kbd :*: Locks :*:
+                 XMonadLog :*: EWMH :*: Kbd :*: Locks :*: Bars :*:
 #ifdef INOTIFY
                  Mail :*: MBox :*:
 #endif

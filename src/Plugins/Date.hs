@@ -1,4 +1,5 @@
 {-# LANGUAGE CPP #-}
+{-# LANGUAGE PackageImports #-}
 -----------------------------------------------------------------------------
 -- |
 -- Module      :  Plugins.Date
@@ -24,7 +25,7 @@ import Plugins
 #if ! MIN_VERSION_time(1,5,0)
 import System.Locale
 #endif
-import Data.Time
+import "time" Data.Time
 
 data Date = Date String String Int
     deriving (Read, Show)
